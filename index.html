@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="Personal website of Dr. Isak Ladegaard, showcasing his research, teaching, and media presence.">
     <title>Isak, website under construction</title>
     <link rel="stylesheet" href="./styles/sharedStyles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,6 +81,12 @@
         </div>
     </main>
 
+    <!-- Optional footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Isak Ladegaard. All Rights Reserved.</p>
+        <p><a href="mailto:your-email@example.com">Contact Me</a></p>
+    </footer>
+
     <script type="module">
         import * as data from './JSON/sources.json' with {type: 'json'};
         const textSources = data.default.home.textSources;
@@ -94,9 +101,12 @@
             img.src = `./images/${image.src}`;
             img.alt = image.alt;
             img.classList.add('landing-photo');
+            img.loading = 'lazy'; // Lazy loading for better performance
             images.appendChild(img);
         }
     </script>
+
 </body>
 
 </html>
+
