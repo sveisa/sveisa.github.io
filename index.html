@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Personal website of Dr. Isak, showcasing his research, teaching, and media presence.">
     <title>Isak, website under construction</title>
     <link rel="stylesheet" href="./styles/sharedStyles2.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 <body>
     <header class="flex columns">
         <div class="titlebar">
-            <h1>
+            <h1 >
                 <a href="./index.html">
                     Isak
                 </a>
@@ -29,6 +29,7 @@
                         </a>
                     </h3>
                 </li>
+
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/CV.html">
@@ -36,6 +37,7 @@
                         </a>
                     </h3>
                 </li>
+
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Research.html">
@@ -43,6 +45,7 @@
                         </a>
                     </h3>
                 </li>
+
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Teaching.html">
@@ -50,6 +53,7 @@
                         </a>
                     </h3>
                 </li>
+
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Media & Interviews.html">
@@ -57,6 +61,7 @@
                         </a>
                     </h3>
                 </li>
+
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Contact.html">
@@ -69,26 +74,26 @@
     </header>
 
     <main>
-        <div class="flex two-columns">
-            <article id="home-landing-photos-container" class="flex column">
-                <div id="home-landing-photos" class="flex column">
+        
+       <div class="flex columns ">
+            <article id="home-landing-photos-container" class="flex grow">
+                <div id="home-landing-photos" class="flex grow columns">
                 </div>
+                <!-- use JS to dynamically add photos here? -->
             </article>
 
             <article id="home-introduction-text">
-                <p></p>
+                <!-- use JS to dynamically add photos here? -->
+                <p>
+                </p>
             </article>
-        </div>
+       </div>
+
     </main>
 
-    <!-- Optional footer section -->
-    <footer class="footer">
-        <p>&copy; 2024 Isak Ladegaard. All Rights Reserved.</p>
-        <p><a href="mailto:your-email@example.com">Contact Me</a></p>
-    </footer>
 
     <script type="module">
-        import * as data from './JSON/sources.json' with {type: 'json'};
+        import * as data from './JSON/sources.json'  with {type: 'json'} ; //(with path)
         const textSources = data.default.home.textSources;
         const imageSources = data.default.home.imageSources;
 
@@ -96,17 +101,18 @@
         intro.innerText = textSources.introduction.text;
 
         const images = document.getElementById("home-landing-photos");
-        for (let image of imageSources) {
-            let img = document.createElement('img');
-            img.src = `./images/${image.src}`;
-            img.alt = image.alt;
-            img.classList.add('landing-photo');
-            img.loading = 'lazy'; // Lazy loading for better performance
+        console.log(imageSources);
+        for (let image of imageSources){
+            console.log(image)
+            let img = document.createElement('img')
+            img.src=`./images/${image.src}`;
+            img.alt=image.alt;
             images.appendChild(img);
         }
+
     </script>
+
 
 </body>
 
 </html>
-
