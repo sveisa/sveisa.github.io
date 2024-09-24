@@ -12,12 +12,11 @@
 <body>
     <header class="flex columns">
         <div class="titlebar">
-            <h1 >
+            <h1>
                 <a href="./index.html">
                     Isak
                 </a>
             </h1>
-
         </div>
 
         <nav class="navbar flex">
@@ -29,7 +28,6 @@
                         </a>
                     </h3>
                 </li>
-
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/CV.html">
@@ -37,7 +35,6 @@
                         </a>
                     </h3>
                 </li>
-
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Research.html">
@@ -45,7 +42,6 @@
                         </a>
                     </h3>
                 </li>
-
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Teaching.html">
@@ -53,7 +49,6 @@
                         </a>
                     </h3>
                 </li>
-
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Media & Interviews.html">
@@ -61,7 +56,6 @@
                         </a>
                     </h3>
                 </li>
-
                 <li class="nav-item">
                     <h3>
                         <a href="./pages/Contact.html">
@@ -74,26 +68,20 @@
     </header>
 
     <main>
-        
-       <div class="flex columns ">
-            <article id="home-landing-photos-container" class="flex grow">
-                <div id="home-landing-photos" class="flex grow columns">
+        <div class="flex two-columns">
+            <article id="home-landing-photos-container" class="flex column">
+                <div id="home-landing-photos" class="flex column">
                 </div>
-                <!-- use JS to dynamically add photos here? -->
             </article>
 
             <article id="home-introduction-text">
-                <!-- use JS to dynamically add photos here? -->
-                <p>
-                </p>
+                <p></p>
             </article>
-       </div>
-
+        </div>
     </main>
 
-
     <script type="module">
-        import * as data from './JSON/sources.json'  with {type: 'json'} ; //(with path)
+        import * as data from './JSON/sources.json' with {type: 'json'};
         const textSources = data.default.home.textSources;
         const imageSources = data.default.home.imageSources;
 
@@ -101,18 +89,14 @@
         intro.innerText = textSources.introduction.text;
 
         const images = document.getElementById("home-landing-photos");
-        console.log(imageSources);
-        for (let image of imageSources){
-            console.log(image)
-            let img = document.createElement('img')
-            img.src=`./images/${image.src}`;
-            img.alt=image.alt;
+        for (let image of imageSources) {
+            let img = document.createElement('img');
+            img.src = `./images/${image.src}`;
+            img.alt = image.alt;
+            img.classList.add('landing-photo');
             images.appendChild(img);
         }
-
     </script>
-
-
 </body>
 
 </html>
