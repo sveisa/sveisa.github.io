@@ -1,0 +1,91 @@
+
+/* General Flexbox Layout */
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.rows {
+    flex-direction: row;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+/* Styling for images */
+#home-landing-photos img {
+    width: 100%; /* Automatically resize to the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevents the image from being larger than the container */
+    object-fit: cover; /* Ensures the image covers the available space */
+}
+
+/* Typography */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    justify-content: center; /* Centers the nav items */
+}
+
+.nav-item h3 {
+    margin: 0; /* Removes default margin */
+}
+
+.nav-item {
+    list-style: none; /* Removes bullet points */
+    padding: 10px 20px; /* Adds padding around each item */
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+/* Add hover effect for navigation */
+.nav-item a:hover {
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack nav items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust font size on smaller screens */
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
