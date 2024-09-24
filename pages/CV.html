@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="../styles/sharedStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="../index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="../index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="flex columns">
+
+            <section id="cv-viewer" class="flex center">
+            
+            </section>
+
+            <section class="flex center">
+                <div class="button" style="margin: 2.5rem 0;">
+                    <h3>
+                        <a id="cv-download-ref" href="" download>
+                            Download my CV here
+                        </a>
+                    </h3>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <script type="module">
+        import * as data from '../JSON/sources.json'  with {type: 'json'} ; //(with path)
+        setTimeout(()=>{
+
+            // JUST CONVERT THE PDF TO A PNG!!!!!!!!!!!!!!!!
+            // NO NEED FOR AN OBJECT
+            //  PROPER SUPPORT FOR MOBILE THEN
+            // 
+            const textSources = data.default.cv.textSources;
+            const imageSources = data.default.cv.imageSources;
+            const otherSources = data.default.cv.otherSources;
+
+            const PDFsrc = `../otherContent/${otherSources.cv.src}`;
+            const downloadLink = document.getElementById("cv-download-ref");
+            downloadLink.href=PDFsrc;
+
+            console.log(PDFsrc + "#zoom=100&scrollbar=0&toolbar=0&navpanes=0&view=FitH");
+            const PDFembed = document.getElementById("cv-viewer");
+            PDFembed.innerHTML = `
+                <object trusted="yes" application="yes" title="CV"  type="application/pdf" frameborder="0" scrolling="no" data="${PDFsrc + "#zoom=100&scrollbar=0&toolbar=0&navpanes=0&view=FitH"}"> 
+                        <h2>
+                            Oops! Looks like this format is not supported on your device.
+                        </h2>
+                        <h3>Please donwload the CV to view</h3>
+                </object>
+            `
+        }, 500)
+    </script>
+
+
+</body>
+
+</html>

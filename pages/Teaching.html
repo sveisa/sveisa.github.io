@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="../styles/sharedStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="../index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="../index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div >
+            <h2>Course Syllabi (HKU)</h2>
+        </div>
+        <hr>
+        <div class="flex">          
+            <ul id="syllabi-list">
+
+            </ul> 
+        </div>
+    </main>
+
+    <!-- MAKE EACH OF THE SUBJECTS HAVE A DROP DOWN
+    IN WHICH, A BRIEF EXCERPT OF THE SYLLABUS IS GIVEN. IE a INTRO -->
+    <script type="module">
+        import * as data from '../JSON/sources.json'  with {type: 'json'} ; //(with path)
+
+        const syllabi = data.default.teaching.textSources.syllabi;
+
+        syllabi.sort(function(a, b) {
+            if (a.name < b.name) {
+            return -1;
+            }
+            if (a.name > b.name) {
+            return 1;
+            }
+            return 0;
+        });
+
+        const syllabiList = document.getElementById("syllabi-list");
+
+        let count = 0;
+        for (let item of syllabi){
+            count++;
+            const syllabiItemHTML = `
+                <li class="syllabi-item flex columns">
+                    <div class="flex rows">
+                        <div>
+                            <h2 class="syllabus-item-title"> <a href="${item.src}">${item.title}</a> <span class="syllabus-item-level">( ${item.level} )</span> </h2>
+                        </div>
+                        <div class="flex grow">
+                            <button class="drop-down" type="reset" id="but-${count}">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="description-hidden description" id="description-${count}">
+                            <p class="syllabus-item-intro">
+                                ${item.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            
+            `;
+            const syllabiItem = document.createElement("div");
+            syllabiItem.innerHTML = syllabiItemHTML;
+            syllabiList.appendChild(syllabiItem);
+        }
+
+        syllabiList.addEventListener('click', (event) => {
+
+            const isButton = event.target.nodeName === 'BUTTON';
+            if (!isButton) {
+                return;
+            }   
+
+
+            const icon = event.target.children[0];
+            icon.classList.toggle("fa-angle-right");
+            icon.classList.toggle("fa-angle-down");
+
+            const number = event.target.id[event.target.id.length - 1];
+            const description_id = "description-"+number;
+            const description = document.getElementById(description_id);
+            description.classList.toggle("description-shown");
+            description.classList.toggle("description-hidden");
+        })
+
+    </script>
+
+</body>
+
+</html>

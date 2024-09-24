@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="../styles/sharedStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="../index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="../index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="research-list" class="flex columns">           
+        </div>
+    </main>
+
+
+    <script type="module">
+        import * as data from '../JSON/sources.json'  with {type: 'json'} ; //(with path)
+        const researchSources = data.default.research.textSources.researchArticles;
+        researchSources.sort(function(a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+
+        const researchList = document.getElementById("research-list");
+        let count = 0;
+        for (let item of researchSources){
+            count++
+            let researchItemHTML = `
+            <div class="research-item flex">
+                <div class="flex grow">
+                    <h3 class="research-item-title">
+
+                        ${item.linkSrc !== undefined ? 
+                        `                
+                        <a href="${item.linkSrc}">
+                            ${item.title}
+                        </a>
+
+                        ${item.coauthors !== undefined ? `
+                        <span class="research-item-coauthors" >
+                            ( with ${item.coauthors} )
+                        </span>
+                        ` 
+                        : 
+                        `
+                        `
+                        }
+                        `
+                        :
+                        `
+                            ${item.title}
+                             ${item.coauthors !== undefined ? `
+                        <span class="research-item-coauthors" >
+                            ( with ${item.coauthors} )
+                        </span>
+                        ` 
+                        : 
+                        `
+                        `
+                        }
+                        `
+                        }
+                    
+                        <div class="research-item-journal">
+                            - <b>${item.journal}</b>
+                        </div>
+                    </h3>   
+                </div>
+                
+                ${item.downloadSrc !== undefined ? 
+                `                
+                <div class="research-item-right flex">
+                    <div class="button" style="margin:auto">
+                        <h3>
+                            <a href="../otherContent/${item.downloadSrc}" download>
+                                Download paper
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                `
+                :
+                `
+                  <div class="research-item-right flex">
+                    </div>
+                `
+                }
+                </div>
+                ${count === researchSources.length ? '':'<hr>'}
+                `
+        
+            const researchItem = document.createElement("div");
+            researchItem.innerHTML = researchItemHTML;
+            researchList.appendChild(researchItem);
+        }
+
+    </script>
+
+</body>
+
+</html>

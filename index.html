@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="./styles/sharedStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="./index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="./index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./pages/CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./pages/Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./pages/Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./pages/Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./pages/Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+       <div class="flex columns ">
+            <article id="home-landing-photos-container" class="flex grow">
+                <div id="home-landing-photos" class="flex grow columns">
+                </div>
+                <!-- use JS to dynamically add photos here? -->
+            </article>
+
+            <article id="home-introduction-text">
+                <!-- use JS to dynamically add photos here? -->
+                <p>
+                </p>
+            </article>
+       </div>
+
+    </main>
+
+
+    <script type="module">
+        import * as data from './JSON/sources.json'  with {type: 'json'} ; //(with path)
+        const textSources = data.default.home.textSources;
+        const imageSources = data.default.home.imageSources;
+
+        const intro = document.getElementById("home-introduction-text").children[0];
+        intro.innerText = textSources.introduction.text;
+
+        const images = document.getElementById("home-landing-photos");
+        console.log(imageSources);
+        for (let image of imageSources){
+            console.log(image)
+            let img = document.createElement('img')
+            img.src=`./images/${image.src}`;
+            img.alt=image.alt;
+            images.appendChild(img);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

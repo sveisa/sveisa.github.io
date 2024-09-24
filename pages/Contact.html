@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="../styles/sharedStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="../index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="../index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main >
+        
+        <div id="contact-list" class="flex columns">
+
+
+
+<!--                         
+            CONNECT THIS WITH THE JSON -->
+
+        </div>
+    </main>
+
+
+    <script type="module">
+        import * as data from '../JSON/sources.json'  with {type: 'json'} ; //(with path)
+        const contactSources = data.default.contact.textSources.contactSources;
+
+        const contactList = document.getElementById("contact-list");
+        let count = 0;
+        for (let item of contactSources){
+            count++
+            let contactItemHTML = `
+
+                <div class="contact-item flex">
+                    <a class="contact-item-link" href="${item.linkSrc}" target="_blank">
+                        <div class="flex rows contact-item-row">
+                            <img src="../images/${item.imageSrc}"  class="contact-item-logo">
+                        
+                            <h2 class="contact-item-title">
+                                ${item.title}
+                            </h2>
+                        </div>
+                    </a>
+                </div>
+
+                ${count === contactSources.length ? '':'<div class="contact-item-divider"><hr class="contact-item-divider"></div>'}
+                `
+        
+            const contactItem = document.createElement("div");
+            contactItem.innerHTML = contactItemHTML;
+            contactList.appendChild(contactItem);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isak Ladegaard, PHD</title>
+    <link rel="stylesheet" href="../styles/sharedStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="flex columns">
+        <div class="titlebar">
+            <h1 >
+                <a href="../index.html">
+                    Isak Ladegaard
+                </a>
+            </h1>
+        </div>
+
+        <nav class="navbar flex">
+            <ul class="flex rows ">
+                <li class="nav-item">
+                    <h3>
+                        <a href="../index.html">
+                            Home
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./CV.html">
+                            CV
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Research.html">
+                            Research
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Teaching.html">
+                            Teaching
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Media & Interviews.html">
+                            Media & Interviews
+                        </a>
+                    </h3>
+                </li>
+
+                <li class="nav-item">
+                    <h3>
+                        <a href="./Contact.html">
+                            Contact
+                        </a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <!-- VIDEO EMBEDS -->
+    <!-- AUDIO EMBEDS -->
+
+    <main >
+        <div id="interview-list" class="flex columns">
+        </div>
+    </main>
+
+
+    <script type="module">
+        import * as data from '../JSON/sources.json'  with {type: 'json'} ; //(with path)
+        const interviewSources = data.default.interviews.otherSources.interviews;
+        interviewSources.sort(function(a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+
+        const interviewList = document.getElementById("interview-list");
+        let count = 0;
+        for (let item of interviewSources){
+            count++
+            let interviewItemHTML = '';
+
+            if (item.mediaType === "video"){
+                interviewItemHTML = `
+                <div class="flex columns interview-item">
+                    <h2 class="interview-item-title">
+                        <a href="${item.linkSrc}" target="_blank">
+                            ${item.title}
+                        </a>
+                    </h2>
+
+                    <div class="flex interview-item-video">
+                        <video controls>
+                            Your browser does not support the video tag
+                            <source src="../otherContent/${item.mediaSrc}" type="video/${item.mediaSrc.substring(item.mediaSrc.lastIndexOf(".") + 1)}">
+                        </video>
+                    </div>
+
+                    <h3 class="interview-item-description">
+                        ${item.description}
+                    </h3>
+
+                    <h3 style="margin-left: auto; margin-right: 1rem;">
+                        - ${item.date}
+                    </h3>
+        
+                </div>
+                ${count === interviewSources.length ? '':'<div><hr></div>'}
+                `
+            }else{
+                let type = item.mediaSrc.substring(item.mediaSrc.lastIndexOf(".") + 1);
+                if (type === ".mp3"){
+                    type = "mpeg"
+                }
+
+                interviewItemHTML = `
+                <div class="flex columns interview-item">
+                    <h2 class="interview-item-title">
+                        <a href="${item.linkSrc}" target="_blank">
+                            ${item.title}
+                        </a>
+                    </h2>
+
+                    <div class="flex interview-item-audio">
+                        <audio controls>
+                            Your browser does not support the audio element.
+                            <source src="../otherContent/${item.mediaSrc}" type="audio/${type}">
+                        </audio>
+                    </div>
+
+                    <h3 class="interview-item-description">
+                        ${item.description}
+                    </h3>
+
+                    <h3 style="margin-left: auto; margin-right: 1rem;">
+                        - ${item.date}
+                    </h3>
+        
+                </div>
+                ${count === interviewSources.length ? '':'<div><hr></div>'}
+                `        
+            }
+
+            const interviewItem = document.createElement("div");
+            interviewItem.innerHTML = interviewItemHTML;
+            interviewList.appendChild(interviewItem);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

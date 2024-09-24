@@ -1,0 +1,162 @@
+{
+    "home":{
+        "imageSources" : 
+        [
+            
+            {
+                "alt" : "portrait photo of myself",
+                "src" : "Matthew_Soener_2019+.jpg"
+            }
+        ]
+        ,
+        "textSources" : {
+            "introduction" : {
+                "text" : "I am Professor Isak Ladegaard, a faculty member in the Department of Sociology at the University of Hong Kong. My research interests encompass the study of migration, identity dynamics, and the complexities of social inequality. Through my work, I strive to illuminate the intricate relationships between societal structures and individual experiences, contributing to our understanding of contemporary social issues. At HKU, I am committed to fostering an intellectually rigorous environment that promotes critical thinking and scholarly dialogue. I aim to equip students with the analytical skills necessary to navigate and address the pressing challenges of our time. I look forward to engaging with both students and colleagues as we embark on a journey of inquiry and discovery in the dynamic field of sociology."
+            }
+        }
+    },
+
+
+    "cv":{
+        "imageSources" : 
+        []
+        ,
+        "textSources" : {
+        },
+        "otherSources" : {
+            "cv" : {
+                "alt" : "my CV",
+                "src" : "CV.pdf"
+            }
+        }
+    },
+
+
+    "research": {
+        "imageSources" : 
+        [
+        ]
+        ,
+        "textSources" : {
+            "researchArticles" : [
+                {
+                    "date" : "09/21/2020",
+                    "title" : "Are IMF Programs Raising Greenhouse Gases in the Global South?",
+                    "journal" : "Socio-Economic Review",
+                    "coauthors" : "Joe and Bill",
+                    "downloadSrc" : "CV.pdf",
+                    "linkSrc" : "https://academic.oup.com/ser/advance-article-abstract/doi/10.1093/ser/mwae006/7615465?redirectedFrom=fulltext"
+                },
+                {
+                    "date" : "09/21/2024",
+                    "title" : "Financialization Goes South: Foreign Capital Flows and Financial Accumulation in Emerging Markets ",
+                    "journal" : "International Journal of Comparative Sociology",
+                    "linkSrc" : "https://academic.oup.com/ser/advance-article-abstract/doi/10.1093/ser/mwae006/7615465?redirectedFrom=fulltext"
+                },
+                {
+                    "date" : "09/21/2019",
+                    "title" : "Class Power in Hard Times: Excavating Nicos Poulantzas’s Theory of the Capitalist State through the History of the 2007–2008 Crisis",
+                    "journal" : "Critical Historical Studies",
+                    "coauthors" : "Olivier Godechot and Mirna Safi",
+                    "downloadSrc" : "CV.pdf",
+                    "linkSrc" : "https://academic.oup.com/ser/advance-article-abstract/doi/10.1093/ser/mwae006/7615465?redirectedFrom=fulltext"
+                },
+                {
+                    "date" : "09/21/2021",
+                    "title" : "Who Benefits from Migrant and Female Labor? Connecting Wages to Demographic Changes in French Workplaces",
+                    "journal" : "Sociological Forum.",
+                    "linkSrc" : "https://academic.oup.com/ser/advance-article-abstract/doi/10.1093/ser/mwae006/7615465?redirectedFrom=fulltext",
+                    "downloadSrc" : "CV.pdf"
+                }
+            ]
+        },
+        "otherSources" : {
+        }
+    },
+
+    "teaching" :  {
+        "imageSources" : 
+        [
+        ]
+        ,
+        "textSources" : {
+            "syllabi" : [
+                {
+                    "src":"https://static1.squarespace.com/static/5dfe6422febc2e2b10557be2/t/60e80a5eba333063f17a44f6/1625819744147/Soc+596_Pol+Eco_Syllabus.pdf",
+                    "title":"Political Economy",
+                    "level":"Graduate",
+                    "description": "wdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdwddawd wadawwadawddwawdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdwddawdwadawwadawddwawdawdawdwadawdwd dawdwadawwadawddwawdawdawdwadawdwddawdwadawwadawddwawdwddawdwadawwadawddwawdawdawdwadawdwddawdwadawwadawddwa"
+                },
+                {
+                    "src":"https://static1.squarespace.com/static/5dfe6422febc2e2b10557be2/t/60e80a5eba333063f17a44f6/1625819744147/Soc+596_Pol+Eco_Syllabus.pdf",
+                    "title":"Political Economy",
+                    "level":"Graduate",
+                    "description": "wdawdawdwadawdwddawdwadawwadawddwa"
+                },
+                {
+                    "src":"https://static1.squarespace.com/static/5dfe6422febc2e2b10557be2/t/60e80a5eba333063f17a44f6/1625819744147/Soc+596_Pol+Eco_Syllabus.pdf",
+                    "title":"Political Economy",
+                    "level":"Graduate",
+                    "description": "wdawdawdwadawdwddawdwadawwadawddwa"
+                }
+            ]
+        },
+        "otherSources" : {
+        }
+    },
+    "interviews" :  {
+        "imageSources" : 
+        [
+        ]
+        ,
+        "textSources" : {
+        },
+        "otherSources" : {
+            "interviews" : [
+                {
+                    "date" : "09/24/2024",
+                    "title":"Random audio file",
+                    "description" : "This audio file is random, i got it from a random place online, randomly",
+                    "mediaType" : "audio",
+                    "mediaSrc" : "wowowowowowowow-103214.mp3",
+                    "linkSrc" : "https://pixabay.com/sound-effects/wowowowowowowow-103214/"
+                },
+                {
+                    "date" : "10/24/2024",
+                    "title":"Random video file",
+                    "description" : "This video file is random, i got it from a random place online, randomly",
+                    "mediaType" : "video",
+                    "mediaSrc" : "SampleVideo_1280x720_5mb.mp4",
+                    "linkSrc" : "https://sample-videos.com/#:~:text=Sample-Videos.com%20is%20a%20100%%20FREE%20service"
+                }
+            ]
+        }
+    },
+    "contact" :  {
+        "imageSources" : 
+        [
+        ]
+        ,
+        "textSources" : {
+            "contactSources" : [
+                {
+                    "linkSrc":"mailto:IsakLadegaard@connect.hku.hk",
+                    "title":"IsakLadegaard@connect.hku.hk",
+                    "imageSrc":"Screenshot 2024-09-23 000435.png"
+                },
+                {
+                    "linkSrc":"https://sociology.hku.hk/taught-postgraduate/tpg-sociology",
+                    "title":"My HKU page",
+                    "imageSrc":"OIP.jpeg"
+                },
+                {
+                    "linkSrc":"https://scholar.google.fr/citations?authuser=1&hl=en&user=cxaHoCEAAAAJ",
+                    "title":"My Google Scholar page",
+                    "imageSrc":"google_scholar.png"
+                }
+            ]
+        },
+        "otherSources" : {
+        }
+    }
+}
